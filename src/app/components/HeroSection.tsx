@@ -91,7 +91,7 @@ export function HeroSection({ onViewEvents, onRSVP }: HeroSectionProps) {
         {/* Names — writing animation */}
         <h1
           style={{ fontFamily: "var(--couple-font, 'Barrington', 'Great Vibes', cursive)", lineHeight: 1.25 }}
-          className="text-[48px] sm:text-[60px] md:text-[88px] text-[#C4A57B] tracking-normal my-4 md:my-6 whitespace-nowrap flex items-center justify-center font-normal"
+          className="text-[56px] sm:text-[76px] md:text-[104px] lg:text-[120px] text-[#C4A57B] tracking-normal my-4 md:my-6 whitespace-nowrap flex items-center justify-center font-normal"
         >
           {"Vinu".split("").map((char, i) => (
             <motion.span
@@ -108,7 +108,7 @@ export function HeroSection({ onViewEvents, onRSVP }: HeroSectionProps) {
             initial={{ opacity: 0, scale: 0.4 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.3, delay: 1.0, type: "spring", stiffness: 260 }}
-            className="inline-block text-white text-[32px] sm:text-[40px] md:text-[56px] mx-3"
+            className="inline-block text-white text-[36px] sm:text-[48px] md:text-[64px] lg:text-[76px] mx-3"
           >
             &
           </motion.span>
