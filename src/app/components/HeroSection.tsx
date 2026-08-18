@@ -141,11 +141,10 @@ export function HeroSection({ onViewEvents }: HeroSectionProps) {
           initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 1.9 }}
-          className="flex items-center justify-center gap-1.5 sm:gap-2 my-3.5 sm:my-5 md:my-6 max-w-full px-1 overflow-hidden"
+          className="flex items-center justify-center gap-1.5 sm:gap-2 my-4 sm:my-5 md:my-6 w-full max-w-full px-3"
         >
           <p
-            className="text-[12px] min-[360px]:text-[13.5px] min-[400px]:text-[15px] sm:text-[19px] md:text-[23px] text-[#C4A57B] font-normal italic tracking-normal sm:tracking-wide whitespace-nowrap"
-            style={{ fontFamily: "'Barrington', 'Cormorant Garamond', serif" }}
+            className="font-serif italic text-[12.5px] min-[360px]:text-[14px] min-[400px]:text-[15.5px] sm:text-[19px] md:text-[23px] text-[#C4A57B] font-normal tracking-wide whitespace-nowrap text-center"
           >
             Request The Honor Of Your Presence
           </p>
