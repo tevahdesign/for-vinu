@@ -14,18 +14,18 @@ export function Footer() {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
             style={{ fontFamily: "var(--couple-font, 'Barrington', 'Great Vibes', cursive)" }}
-            className="text-3xl md:text-[42px] tracking-wide text-[#C4A57B] font-normal py-1"
+            className="text-2xl md:text-3xl tracking-wide text-[#C4A57B] font-normal py-1"
           >
             Vinu <motion.span
               initial={{ scale: 0 }}
               whileInView={{ scale: 1 }}
               viewport={{ once: true }}
               transition={{ delay: 0.3, type: "spring", stiffness: 200 }}
-              className="inline-block text-white/70 mx-1 text-2xl md:text-3xl"
+              className="inline-block text-white/70 mx-1 text-lg md:text-xl"
             >&</motion.span> Gana
           </motion.h3>
           
-          {/* Date */}
+          {/* Date - Only Reception Date */}
           <motion.p
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
@@ -33,7 +33,7 @@ export function Footer() {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="text-sm tracking-[0.3em] uppercase text-white/60 font-sans"
           >
-            24 & 25 October 2026
+            26 October 2026
           </motion.p>
 
           {/* Divider */}

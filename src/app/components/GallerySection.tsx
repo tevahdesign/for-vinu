@@ -21,11 +21,11 @@ interface GalleryImage {
 // Row 2: [Together  ] [Moments   ] [Forever  ]
 // Row 3: [Joy               ] [Forever  ]
 const galleryImages: GalleryImage[] = [
-  { id: 1, src: imgTogether,     caption: 'Together',     gridClass: 'md:col-span-1 md:row-span-2', objectPosition: 'object-top' },
-  { id: 2, src: imgCelebrations, caption: 'Forever',      gridClass: 'md:col-span-2 md:row-span-1', objectPosition: 'object-center' },
-  { id: 3, src: imgMoments,      caption: 'Moments',      gridClass: 'md:col-span-1 md:row-span-1', objectPosition: 'object-center' },
-  { id: 4, src: imgForever,      caption: 'Celebrations', gridClass: 'md:col-span-1 md:row-span-2', objectPosition: 'object-center' },
-  { id: 5, src: imgJoy,          caption: 'Joy',          gridClass: 'md:col-span-2 md:row-span-1', objectPosition: 'object-center' },
+  { id: 1, src: imgTogether,     caption: 'Together',     gridClass: 'md:col-span-1 md:row-span-2', objectPosition: 'center top' },
+  { id: 2, src: imgCelebrations, caption: 'Forever',      gridClass: 'md:col-span-2 md:row-span-1', objectPosition: 'center 52%' },
+  { id: 3, src: imgMoments,      caption: 'Moments',      gridClass: 'md:col-span-1 md:row-span-1', objectPosition: 'center top' },
+  { id: 4, src: imgForever,      caption: 'Celebrations', gridClass: 'md:col-span-1 md:row-span-2', objectPosition: 'center top' },
+  { id: 5, src: imgJoy,          caption: 'Joy',          gridClass: 'md:col-span-2 md:row-span-1', objectPosition: 'center top' },
 ];
 
 export function GallerySection() {
@@ -155,7 +155,8 @@ export function GallerySection() {
               <motion.img
                 src={image.src}
                 alt={image.caption}
-                className={`w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out ${image.objectPosition || 'object-center'}`}
+                style={{ objectPosition: image.objectPosition || 'center top' }}
+                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
               />
 
               {/* Subtle hover shine effect */}
