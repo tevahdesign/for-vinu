@@ -21,11 +21,11 @@ interface GalleryImage {
 // Row 2: [Together  ] [Moments   ] [Forever  ]
 // Row 3: [Joy               ] [Forever  ]
 const galleryImages: GalleryImage[] = [
-  { id: 1, src: imgTogether,     caption: 'Together',     gridClass: 'md:col-span-1 md:row-span-2', objectPosition: 'center top' },
-  { id: 2, src: imgCelebrations, caption: 'Forever',      gridClass: 'md:col-span-2 md:row-span-1', objectPosition: 'center 52%' },
-  { id: 3, src: imgMoments,      caption: 'Moments',      gridClass: 'md:col-span-1 md:row-span-1', objectPosition: 'center top' },
-  { id: 4, src: imgForever,      caption: 'Celebrations', gridClass: 'md:col-span-1 md:row-span-2', objectPosition: 'center top' },
-  { id: 5, src: imgJoy,          caption: 'Joy',          gridClass: 'md:col-span-2 md:row-span-1', objectPosition: 'center top' },
+  { id: 1, src: imgTogether,     caption: 'Together',     gridClass: 'col-span-1 row-span-2', objectPosition: 'center top' },
+  { id: 2, src: imgCelebrations, caption: 'Forever',      gridClass: 'col-span-2 row-span-1', objectPosition: 'center 52%' },
+  { id: 3, src: imgMoments,      caption: 'Moments',      gridClass: 'col-span-1 row-span-1', objectPosition: 'center top' },
+  { id: 4, src: imgForever,      caption: 'Celebrations', gridClass: 'col-span-1 row-span-2', objectPosition: 'center top' },
+  { id: 5, src: imgJoy,          caption: 'Joy',          gridClass: 'col-span-2 row-span-1', objectPosition: 'center top' },
 ];
 
 export function GallerySection() {
@@ -136,7 +136,7 @@ export function GallerySection() {
         </ScrollReveal>
 
         {/* Bento Grid matching reference screenshot - Pure photos without frame or text before click */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-5 h-auto md:h-[750px] lg:h-[820px]">
+        <div className="grid grid-cols-3 gap-2.5 sm:gap-4 md:gap-5 h-[460px] min-[400px]:h-[520px] sm:h-[640px] md:h-[750px] lg:h-[820px]">
           {galleryImages.map((image, index) => (
             <motion.button
               key={image.id}
@@ -149,7 +149,7 @@ export function GallerySection() {
                 ease: [0.25, 0.1, 0.25, 1]
               }}
               onClick={() => openLightbox(image.id)}
-              className={`relative overflow-hidden group cursor-pointer w-full h-[280px] md:h-full bg-black ${image.gridClass}`}
+              className={`relative overflow-hidden group cursor-pointer w-full h-full bg-black ${image.gridClass}`}
             >
               {/* Pure Photo edge-to-edge - No border frame or text overlay before click */}
               <motion.img
