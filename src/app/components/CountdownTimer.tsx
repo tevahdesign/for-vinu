@@ -10,7 +10,7 @@ interface TimeLeft {
 }
 
 export function CountdownTimer() {
-  const weddingDate = new Date('2026-10-24T17:00:00').getTime();
+  const weddingDate = new Date('2026-10-26T17:00:00').getTime();
   
   const calculateTimeLeft = (): TimeLeft => {
     const now = new Date().getTime();
@@ -222,7 +222,7 @@ export function CountdownTimer() {
           className="text-center mt-12"
         >
           <p className="font-serif text-2xl md:text-3xl text-black mb-2">
-            October 24, 2026
+            October 26, 2026
           </p>
           <div className="flex items-center justify-center gap-2 text-black/60 font-sans text-sm tracking-wider">
             <Calendar className="w-4 h-4" />
