@@ -15,9 +15,9 @@ const events: Event[] = [
   {
     id: 'reception',
     name: 'Reception',
-    date: 'Saturday, Oct 24th, 2026',
-    time: '5:00 PM – 8:00 PM',
-    venue: 'Century Convention Centre, Mele Chelari, Near Calicut University'
+    date: 'Monday, Oct 26th, 2026',
+    time: '6:00 PM – 9:00 PM',
+    venue: 'Reem convention centre Mudickal, Aluva - perumbavoor KSRTC road'
   },
   {
     id: 'wedding',
@@ -40,9 +40,9 @@ export function EventsSection() {
     let endStr = '';
 
     if (event.id === 'reception') {
-      // Saturday, 24 October 2026: 5:00 PM to 8:00 PM
-      startStr = '20261024T170000';
-      endStr = '20261024T200000';
+      // Monday, 26 October 2026: 6:00 PM to 9:00 PM
+      startStr = '20261026T180000';
+      endStr = '20261026T210000';
     } else if (event.id === 'wedding') {
       // Sunday, 25 October 2026: 10:30 AM to 1:30 PM
       startStr = '20261025T103000';
@@ -51,7 +51,7 @@ export function EventsSection() {
       // Fallback parser
       const dayMatch = event.date.match(/\b(\d{1,2})(st|nd|rd|th)?\b/i);
       const yearMatch = event.date.match(/\b(20\d\d)\b/);
-      const day = dayMatch ? parseInt(dayMatch[1]) : 24;
+      const day = dayMatch ? parseInt(dayMatch[1]) : 26;
       const year = yearMatch ? parseInt(yearMatch[1]) : 2026;
 
       const pad = (n: number) => String(n).padStart(2, '0');
@@ -61,8 +61,8 @@ export function EventsSection() {
         startStr = `${year}10${dayFormatted}T103000`;
         endStr = `${year}10${dayFormatted}T133000`;
       } else {
-        startStr = `${year}10${dayFormatted}T170000`;
-        endStr = `${year}10${dayFormatted}T200000`;
+        startStr = `${year}10${dayFormatted}T180000`;
+        endStr = `${year}10${dayFormatted}T210000`;
       }
     }
     
@@ -80,7 +80,7 @@ export function EventsSection() {
 
   const handleGetDirections = (eventId: string) => {
     if (eventId === 'reception') {
-      window.open('https://www.google.com/maps/search/?api=1&query=Century+Convention+Centre+Mele+Chelari+Near+Calicut+University', '_blank');
+      window.open('https://www.google.com/maps/search/?api=1&query=Reem+convention+centre+Mudickal+Aluva+perumbavoor+KSRTC+road', '_blank');
     } else if (eventId === 'wedding') {
       window.open('https://www.google.com/maps/search/?api=1&query=Reef+Club+Resort+Eranhikkal+Calicut', '_blank');
     }

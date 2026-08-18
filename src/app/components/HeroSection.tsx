@@ -90,8 +90,8 @@ export function HeroSection({ onViewEvents, onRSVP }: HeroSectionProps) {
 
         {/* Names — writing animation */}
         <h1
-          style={{ fontFamily: "var(--couple-font, 'Barrington', 'Great Vibes', cursive)", lineHeight: 1.1 }}
-          className="text-[75px] md:text-[135px] text-[#C4A57B] tracking-normal mb-0 whitespace-nowrap flex items-center justify-center font-normal"
+          style={{ fontFamily: "var(--couple-font, 'Barrington', 'Great Vibes', cursive)", lineHeight: 1.25 }}
+          className="text-[48px] sm:text-[60px] md:text-[88px] text-[#C4A57B] tracking-normal my-4 md:my-6 whitespace-nowrap flex items-center justify-center font-normal"
         >
           {"Vinu".split("").map((char, i) => (
             <motion.span
@@ -108,7 +108,7 @@ export function HeroSection({ onViewEvents, onRSVP }: HeroSectionProps) {
             initial={{ opacity: 0, scale: 0.4 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.3, delay: 1.0, type: "spring", stiffness: 260 }}
-            className="inline-block text-white text-[45px] md:text-[80px] mx-3"
+            className="inline-block text-white text-[32px] sm:text-[40px] md:text-[56px] mx-3"
           >
             &
           </motion.span>
@@ -166,10 +166,10 @@ export function HeroSection({ onViewEvents, onRSVP }: HeroSectionProps) {
             className="text-[26px] md:text-[30px] tracking-[1px] text-white font-medium"
             style={{ fontFamily: "'Poppins', sans-serif" }}
           >
-            24 & 25 October 2026
+            Monday, Oct 26th
           </p>
           <p className="text-[14px] tracking-[0.7px] font-sans text-white/60">
-            Century Auditorium, Mele Chelari · Reef Club
+            Reem Convention Centre, Mudickal, Aluva
           </p>
         </motion.div>
 

@@ -14,14 +14,14 @@ export function Footer() {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
             style={{ fontFamily: "var(--couple-font, 'Barrington', 'Great Vibes', cursive)" }}
-            className="text-5xl md:text-6xl tracking-wide text-[#C4A57B] font-normal"
+            className="text-3xl md:text-[42px] tracking-wide text-[#C4A57B] font-normal py-1"
           >
             Vinu <motion.span
               initial={{ scale: 0 }}
               whileInView={{ scale: 1 }}
               viewport={{ once: true }}
               transition={{ delay: 0.3, type: "spring", stiffness: 200 }}
-              className="inline-block text-white/70"
+              className="inline-block text-white/70 mx-1 text-2xl md:text-3xl"
             >&</motion.span> Gana
           </motion.h3>
           

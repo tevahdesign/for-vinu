@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { X, ChevronLeft, ChevronRight, Heart } from 'lucide-react';
 import { ScrollReveal } from './ScrollReveal';
 import { motion, AnimatePresence } from 'motion/react';
-import imgTogether from '@/imports/PremiumWeddingInvitationWebsite-2/f2620f3ada46f4253490618623d4b411fba7cae6.png';
+import imgTogether from '@/imports/PremiumWeddingInvitationWebsite-2/1001213957.png';
 import imgCelebrations from '@/imports/PremiumWeddingInvitationWebsite-2/eff8209a870d74aaac3e7bdcfb817ab959242085.png';
 import imgMoments from '@/imports/PremiumWeddingInvitationWebsite-2/59e8811671b260eb2ad7760092f378a5f8e89d4d.png';
 import imgForever from '@/imports/PremiumWeddingInvitationWebsite-2/193921cf0ec6df597324de4ce406260d3c07622f.jpg';

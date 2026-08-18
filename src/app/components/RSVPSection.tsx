@@ -24,7 +24,7 @@ export function RSVPSection() {
   const [focusedField, setFocusedField] = useState<string | null>(null);
 
   const eventOptions = [
-    { id: 'reception', label: 'Reception', date: 'Sat, 24 Oct 2026' },
+    { id: 'reception', label: 'Reception', date: 'Mon, 26 Oct 2026' },
     { id: 'wedding', label: 'Wedding', date: 'Sun, 25 Oct 2026' }
   ];
 
