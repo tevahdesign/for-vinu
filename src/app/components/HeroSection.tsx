@@ -141,15 +141,15 @@ export function HeroSection({ onViewEvents }: HeroSectionProps) {
           initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 1.9 }}
-          className="flex items-center justify-center gap-2 mt-5 mb-7 sm:mt-6 sm:mb-8 md:mt-8 md:mb-10 px-2"
+          className="flex items-center justify-center gap-1.5 sm:gap-2 my-3.5 sm:my-5 md:my-6 max-w-full px-1 overflow-hidden"
         >
           <p
-            className="text-[15px] sm:text-[20px] md:text-[24px] text-[#C4A57B] font-normal italic tracking-wider leading-relaxed"
+            className="text-[12px] min-[360px]:text-[13.5px] min-[400px]:text-[15px] sm:text-[19px] md:text-[23px] text-[#C4A57B] font-normal italic tracking-normal sm:tracking-wide whitespace-nowrap"
             style={{ fontFamily: "'Barrington', 'Cormorant Garamond', serif" }}
           >
             Request The Honor Of Your Presence
           </p>
-          <svg fill="none" height="15" viewBox="0 0 13.862 13.862" width="15" className="inline-block shrink-0 mb-0.5">
+          <svg fill="none" height="13" viewBox="0 0 13.862 13.862" width="13" className="inline-block shrink-0 mb-0.5">
             <path d={svgPaths.p30ce8180} opacity="0.8" stroke="#C4A57B" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.2" />
           </svg>
         </motion.div>
