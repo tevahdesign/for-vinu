@@ -21,11 +21,11 @@ interface GalleryImage {
 // Row 2: [Together  ] [Moments   ] [Forever  ]
 // Row 3: [Joy               ] [Forever  ]
 const galleryImages: GalleryImage[] = [
-  { id: 1, src: imgTogether,     caption: 'Together',     gridClass: 'md:col-span-1 md:row-span-2', objectPosition: 'object-center' },
-  { id: 2, src: imgCelebrations, caption: 'Celebrations', gridClass: 'md:col-span-2 md:row-span-1', objectPosition: 'object-center' },
-  { id: 3, src: imgMoments,      caption: 'Moments',      gridClass: 'md:col-span-1 md:row-span-1', objectPosition: 'object-center' },
-  { id: 4, src: imgForever,      caption: 'Forever',      gridClass: 'md:col-span-1 md:row-span-2', objectPosition: 'object-center' },
-  { id: 5, src: imgJoy,          caption: 'Joy',          gridClass: 'md:col-span-2 md:row-span-1', objectPosition: 'object-center' },
+  { id: 1, src: imgTogether,     caption: 'Together',     gridClass: 'md:col-span-1 md:row-span-2', objectPosition: 'object-top' },
+  { id: 2, src: imgCelebrations, caption: 'Celebrations', gridClass: 'md:col-span-2 md:row-span-1', objectPosition: 'object-top' },
+  { id: 3, src: imgMoments,      caption: 'Moments',      gridClass: 'md:col-span-1 md:row-span-1', objectPosition: 'object-top' },
+  { id: 4, src: imgForever,      caption: 'Forever',      gridClass: 'md:col-span-1 md:row-span-2', objectPosition: 'object-top' },
+  { id: 5, src: imgJoy,          caption: 'Joy',          gridClass: 'md:col-span-2 md:row-span-1', objectPosition: 'object-top' },
 ];
 
 export function GallerySection() {
