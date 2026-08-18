@@ -141,15 +141,15 @@ export function HeroSection({ onViewEvents }: HeroSectionProps) {
           initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 1.9 }}
-          className="flex items-center justify-center gap-2.5 mt-3 mb-5"
+          className="flex items-center justify-center gap-2 mt-5 mb-7 sm:mt-6 sm:mb-8 md:mt-8 md:mb-10 px-2"
         >
           <p
-            className="text-[18px] sm:text-[22px] md:text-[25px] text-[#C4A57B] font-normal italic tracking-wide"
+            className="text-[15px] sm:text-[20px] md:text-[24px] text-[#C4A57B] font-normal italic tracking-wider leading-relaxed"
             style={{ fontFamily: "'Barrington', 'Cormorant Garamond', serif" }}
           >
             Request The Honor Of Your Presence
           </p>
-          <svg fill="none" height="15" viewBox="0 0 13.862 13.862" width="15" className="inline-block shrink-0">
+          <svg fill="none" height="15" viewBox="0 0 13.862 13.862" width="15" className="inline-block shrink-0 mb-0.5">
             <path d={svgPaths.p30ce8180} opacity="0.8" stroke="#C4A57B" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.2" />
           </svg>
         </motion.div>
@@ -159,7 +159,7 @@ export function HeroSection({ onViewEvents }: HeroSectionProps) {
           initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 2.1 }}
-          className="font-serif text-[26px] sm:text-[32px] md:text-[36px] tracking-wide text-white font-normal mb-2"
+          className="font-serif text-[24px] sm:text-[30px] md:text-[36px] tracking-wide text-white font-normal mt-1 mb-3"
         >
           Monday, Oct 26th
         </motion.p>
