@@ -11,14 +11,15 @@ export function HeroSection({ onViewEvents }: HeroSectionProps) {
   return (
     <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden">
 
-      {/* Background image with dark overlay matching design */}
-      <div className="absolute inset-0 z-0">
+      {/* Background image with black overlay */}
+      <div className="absolute inset-0 z-0 bg-black">
         <img
           src={imgHeroBg}
           alt="Vinu & Gana"
-          className="absolute inset-0 size-full object-cover object-center pointer-events-none opacity-60"
+          className="absolute inset-0 size-full object-cover object-center pointer-events-none opacity-50"
         />
-        <div className="absolute inset-0 bg-black/60" />
+        <div className="absolute inset-0 bg-black/70" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/40 to-black/90" />
       </div>
 
       {/* Top Sparkle Star - Centered above title */}
