@@ -6,7 +6,7 @@ import imgTogether from '@/imports/PremiumWeddingInvitationWebsite-2/f2620f3ada4
 import imgCelebrations from '@/imports/PremiumWeddingInvitationWebsite-2/eff8209a870d74aaac3e7bdcfb817ab959242085.png';
 import imgMoments from '@/imports/PremiumWeddingInvitationWebsite-2/59e8811671b260eb2ad7760092f378a5f8e89d4d.png';
 import imgForever from '@/imports/PremiumWeddingInvitationWebsite-2/193921cf0ec6df597324de4ce406260d3c07622f.jpg';
-import imgJoy from '@/imports/PremiumWeddingInvitationWebsite-2/1001213957.png';
+import imgJoy from '@/imports/PremiumWeddingInvitationWebsite-2/1001217333.jpg';
 
 interface GalleryImage {
   id: number;
@@ -25,7 +25,7 @@ const galleryImages: GalleryImage[] = [
   { id: 2, src: imgCelebrations, caption: 'Forever',      gridClass: 'col-span-2 row-span-1', objectPosition: 'center 52%' },
   { id: 3, src: imgMoments,      caption: 'Moments',      gridClass: 'col-span-1 row-span-1', objectPosition: 'center top' },
   { id: 4, src: imgForever,      caption: 'Celebrations', gridClass: 'col-span-1 row-span-2', objectPosition: 'center top' },
-  { id: 5, src: imgJoy,          caption: 'Joy',          gridClass: 'col-span-2 row-span-1', objectPosition: 'center top' },
+  { id: 5, src: imgJoy,          caption: 'Joy',          gridClass: 'col-span-2 row-span-1', objectPosition: 'center 25%' },
 ];
 
 export function GallerySection() {

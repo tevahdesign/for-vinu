@@ -8,6 +8,7 @@ interface HeroSectionProps {
 }
 
 export function HeroSection({ onViewEvents }: HeroSectionProps) {
+
   return (
     <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden">
 
@@ -142,7 +143,7 @@ export function HeroSection({ onViewEvents }: HeroSectionProps) {
           initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 1.9 }}
-          className="flex items-center justify-center gap-1.5 sm:gap-2 my-4 sm:my-5 md:my-6 w-full max-w-full px-3"
+          className="flex items-center justify-center gap-1.5 sm:gap-2 my-3 sm:my-4 w-full max-w-full px-3"
         >
           <p
             className="font-serif italic text-[12.5px] min-[360px]:text-[14px] min-[400px]:text-[15.5px] sm:text-[19px] md:text-[23px] text-[#C4A57B] font-normal tracking-wide whitespace-nowrap text-center"
@@ -154,14 +155,24 @@ export function HeroSection({ onViewEvents }: HeroSectionProps) {
           </svg>
         </motion.div>
 
+        {/* Reception Label */}
+        <motion.p
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 2.0 }}
+          className="text-[#C4A57B] text-[13px] sm:text-[15px] md:text-[17px] tracking-[4px] uppercase font-sans font-semibold mt-2 mb-1"
+        >
+          RECEPTION
+        </motion.p>
+
         {/* Date — Cormorant Garamond Serif matching image */}
         <motion.p
           initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 2.1 }}
-          className="font-serif text-[24px] sm:text-[30px] md:text-[36px] tracking-wide text-white font-normal mt-1 mb-3"
+          className="font-serif text-[32px] sm:text-[44px] md:text-[54px] lg:text-[60px] tracking-wide text-white font-medium my-2"
         >
-          Monday, Oct 26th
+          26 October 2026
         </motion.p>
 
         {/* Venue — Cormorant Garamond Serif lines matching image */}
@@ -175,7 +186,7 @@ export function HeroSection({ onViewEvents }: HeroSectionProps) {
           <p>Mudickal, Aluva</p>
         </motion.div>
 
-        {/* VIEW EVENTS button — Solid black button with tracked text matching image */}
+        {/* VIEW EVENTS button */}
         <motion.div
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}

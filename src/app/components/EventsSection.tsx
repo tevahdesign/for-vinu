@@ -15,72 +15,53 @@ const events: Event[] = [
   {
     id: 'reception',
     name: 'Reception',
-    date: 'Monday, Oct 26th, 2026',
-    time: '6:00 PM – 9:00 PM',
-    venue: 'Reem convention centre Mudickal, Aluva - perumbavoor KSRTC road'
+    date: '24 October 2026',
+    time: '5:00 PM – 8:00 PM',
+    venue: 'Century Convention Centre, Mele Chelari, Near Calicut University'
   },
   {
     id: 'wedding',
     name: 'Wedding',
-    date: 'Sunday, Oct 25th, 2026',
-    time: '10:30 AM',
+    date: '25 October 2026',
+    time: 'Muhurtam: 10:15 AM – 11:20 AM',
     venue: 'Reef Club Resort, Eranhikkal, Calicut'
   }
 ];
 
 export function EventsSection() {
-  const [openEvent, setOpenEvent] = useState<string | null>('reception');
+  const [isWeddingOpen, setIsWeddingOpen] = useState(false);
 
-  const toggleEvent = (eventId: string) => {
-    setOpenEvent(openEvent === eventId ? null : eventId);
-  };
-
-  const handleAddToCalendar = (event: Event) => {
+  const handleAddToCalendar = (eventId: string) => {
     let startStr = '';
     let endStr = '';
+    let eventName = '';
+    let venue = '';
 
-    if (event.id === 'reception') {
-      // Monday, 26 October 2026: 6:00 PM to 9:00 PM
+    if (eventId === 'reception') {
       startStr = '20261026T180000';
       endStr = '20261026T210000';
-    } else if (event.id === 'wedding') {
-      // Sunday, 25 October 2026: 10:30 AM to 1:30 PM
-      startStr = '20261025T103000';
-      endStr = '20261025T133000';
-    } else {
-      // Fallback parser
-      const dayMatch = event.date.match(/\b(\d{1,2})(st|nd|rd|th)?\b/i);
-      const yearMatch = event.date.match(/\b(20\d\d)\b/);
-      const day = dayMatch ? parseInt(dayMatch[1]) : 26;
-      const year = yearMatch ? parseInt(yearMatch[1]) : 2026;
-
-      const pad = (n: number) => String(n).padStart(2, '0');
-      const dayFormatted = pad(day);
-
-      if (event.time.includes('10:30')) {
-        startStr = `${year}10${dayFormatted}T103000`;
-        endStr = `${year}10${dayFormatted}T133000`;
-      } else {
-        startStr = `${year}10${dayFormatted}T180000`;
-        endStr = `${year}10${dayFormatted}T210000`;
-      }
+      eventName = 'Reception';
+      venue = 'Reem convention centre Mudickal, Aluva - perumbavoor KSRTC road';
+    } else if (eventId === 'wedding') {
+      startStr = '20261025T101500';
+      endStr = '20261025T112000';
+      eventName = 'Wedding Ceremony';
+      venue = 'Reef Club Resort, Eranhikkal, Calicut';
     }
     
-    // Create Google Calendar URL
     const googleCalendarUrl = new URL('https://calendar.google.com/calendar/render');
     googleCalendarUrl.searchParams.append('action', 'TEMPLATE');
-    googleCalendarUrl.searchParams.append('text', `${event.name} - Vinu & Gana's Wedding`);
+    googleCalendarUrl.searchParams.append('text', `${eventName} - Gana & Vinu's Wedding`);
     googleCalendarUrl.searchParams.append('dates', `${startStr}/${endStr}`);
-    googleCalendarUrl.searchParams.append('details', `Join us for ${event.name} at Vinu & Gana's wedding celebration.`);
-    googleCalendarUrl.searchParams.append('location', event.venue);
+    googleCalendarUrl.searchParams.append('details', `Join us for ${eventName} at Gana & Vinu's wedding celebration.`);
+    googleCalendarUrl.searchParams.append('location', venue);
     
-    // Open in new window
     window.open(googleCalendarUrl.toString(), '_blank');
   };
 
   const handleGetDirections = (eventId: string) => {
     if (eventId === 'reception') {
-      window.open('https://www.google.com/maps/search/?api=1&query=Reem+convention+centre+Mudickal+Aluva+perumbavoor+KSRTC+road', '_blank');
+      window.open('https://maps.app.goo.gl/MGwUsmqn6E3M7teE7', '_blank');
     } else if (eventId === 'wedding') {
       window.open('https://www.google.com/maps/search/?api=1&query=Reef+Club+Resort+Eranhikkal+Calicut', '_blank');
     }
@@ -141,58 +122,133 @@ export function EventsSection() {
           </div>
         </ScrollReveal>
 
-        {/* Events */}
+        {/* Events Cards */}
         <div className="space-y-6">
-          {events.map((event, index) => (
-            <ScrollReveal key={event.id} delay={index * 0.1}>
-              <motion.div
-                whileHover={{ scale: 1.01, transition: { duration: 0.2 } }}
-                className="border border-black/10 bg-white/50 backdrop-blur-sm transition-all duration-300 hover:border-[#C4A57B]/50 hover:shadow-lg p-8"
-              >
-                <div>
-                  <h3 className="font-serif text-3xl text-black mb-2">
-                    {event.name}
-                  </h3>
-                  <p className="text-sm tracking-wider text-black/60 font-sans">
-                    {event.date} · {event.time}
-                  </p>
+          {/* RECEPTION CARD */}
+          <ScrollReveal delay={0.1}>
+            <motion.div
+              whileHover={{ scale: 1.01, transition: { duration: 0.2 } }}
+              className="border border-black/10 bg-white/50 backdrop-blur-sm transition-all duration-300 hover:border-[#C4A57B]/50 hover:shadow-lg p-8"
+            >
+              <div>
+                <h3 className="font-serif text-3xl text-black">
+                  Reception
+                </h3>
+              </div>
+
+              <div className="pt-6 mt-6 border-t border-black/5 space-y-6">
+                <div className="flex items-start gap-4">
+                  <Calendar className="w-5 h-5 text-[#C4A57B] mt-1 flex-shrink-0" />
+                  <div>
+                    <p className="text-xs tracking-widest uppercase text-black/50 font-sans mb-1">Date & Time</p>
+                    <p className="font-serif text-lg text-black font-medium">26 October 2026 · 6:00 PM – 9:00 PM</p>
+                  </div>
                 </div>
 
-                {event.id === 'reception' && (
-                  <div className="pt-6 mt-6 border-t border-black/5 space-y-6">
-                    <div className="flex items-start gap-4">
-                      <MapPin className="w-5 h-5 text-[#C4A57B] mt-1 flex-shrink-0" />
-                      <div>
-                        <p className="text-xs tracking-widest uppercase text-black/50 font-sans mb-1">Venue</p>
-                        <p className="font-serif text-lg text-black">{event.venue}</p>
+                <div className="flex items-start gap-4">
+                  <MapPin className="w-5 h-5 text-[#C4A57B] mt-1 flex-shrink-0" />
+                  <div>
+                    <p className="text-xs tracking-widest uppercase text-black/50 font-sans mb-1">Venue</p>
+                    <p className="font-serif text-lg text-black">Reem convention centre Mudickal, Aluva - perumbavoor KSRTC road</p>
+                  </div>
+                </div>
+
+                <div className="flex flex-wrap gap-3 pt-2">
+                  <motion.button
+                    whileHover={{ scale: 1.05, y: -2 }}
+                    whileTap={{ scale: 0.95 }}
+                    onClick={() => handleAddToCalendar('reception')}
+                    className="flex items-center gap-2 px-6 py-2.5 border border-black text-black hover:bg-black hover:text-white transition-all duration-300 text-sm tracking-wider uppercase font-sans cursor-pointer"
+                  >
+                    <Calendar className="w-4 h-4" />
+                    Add to Calendar
+                  </motion.button>
+                  <motion.button
+                    whileHover={{ scale: 1.05, y: -2 }}
+                    whileTap={{ scale: 0.95 }}
+                    onClick={() => handleGetDirections('reception')}
+                    className="flex items-center gap-2 px-6 py-2.5 border border-[#C4A57B] text-black hover:bg-[#C4A57B] transition-all duration-300 text-sm tracking-wider uppercase font-sans cursor-pointer"
+                  >
+                    <MapPin className="w-4 h-4" />
+                    Get Directions
+                  </motion.button>
+                </div>
+              </div>
+            </motion.div>
+          </ScrollReveal>
+
+          {/* WEDDING CARD WITH CLICKABLE DROPDOWN */}
+          <ScrollReveal delay={0.2}>
+            <motion.div
+              whileHover={{ scale: 1.01, transition: { duration: 0.2 } }}
+              className="border border-black/10 bg-white/50 backdrop-blur-sm transition-all duration-300 hover:border-[#C4A57B]/50 hover:shadow-lg p-8 cursor-pointer"
+              onClick={() => setIsWeddingOpen(!isWeddingOpen)}
+            >
+              <div className="flex justify-between items-center">
+                <div>
+                  <h3 className="font-serif text-3xl text-black">
+                    Wedding
+                  </h3>
+                </div>
+                <div className="w-9 h-9 rounded-full border border-[#C4A57B]/40 flex items-center justify-center bg-white/80 shrink-0 ml-4">
+                  <ChevronDown className={`w-5 h-5 text-[#C4A57B] transition-transform duration-300 ${isWeddingOpen ? 'rotate-180' : ''}`} />
+                </div>
+              </div>
+
+              {/* Inside Card Details - Expanded when clicked */}
+              <AnimatePresence>
+                {isWeddingOpen && (
+                  <motion.div
+                    initial={{ opacity: 0, height: 0 }}
+                    animate={{ opacity: 1, height: 'auto' }}
+                    exit={{ opacity: 0, height: 0 }}
+                    transition={{ duration: 0.35, ease: 'easeInOut' }}
+                    className="overflow-hidden"
+                    onClick={(e) => e.stopPropagation()} // Prevent card toggle when clicking inside buttons
+                  >
+                    <div className="pt-6 mt-6 border-t border-black/5 space-y-6">
+                      <div className="flex items-start gap-4">
+                        <Calendar className="w-5 h-5 text-[#C4A57B] mt-1 flex-shrink-0" />
+                        <div>
+                          <p className="text-xs tracking-widest uppercase text-black/50 font-sans mb-1">Date & Time</p>
+                          <p className="font-serif text-lg text-black font-medium">25 October 2026 (Sunday) · Muhurtam: 10:15 AM – 11:20 AM</p>
+                        </div>
+                      </div>
+
+                      <div className="flex items-start gap-4">
+                        <MapPin className="w-5 h-5 text-[#C4A57B] mt-1 flex-shrink-0" />
+                        <div>
+                          <p className="text-xs tracking-widest uppercase text-black/50 font-sans mb-1">Venue</p>
+                          <p className="font-serif text-lg text-black">Reef Club Resort, Eranhikkal, Calicut</p>
+                        </div>
+                      </div>
+
+                      <div className="flex flex-wrap gap-3 pt-2">
+                        <motion.button
+                          whileHover={{ scale: 1.05, y: -2 }}
+                          whileTap={{ scale: 0.95 }}
+                          onClick={() => handleAddToCalendar('wedding')}
+                          className="flex items-center gap-2 px-6 py-2.5 border border-black text-black hover:bg-black hover:text-white transition-all duration-300 text-sm tracking-wider uppercase font-sans cursor-pointer"
+                        >
+                          <Calendar className="w-4 h-4" />
+                          Add to Calendar
+                        </motion.button>
+                        <motion.button
+                          whileHover={{ scale: 1.05, y: -2 }}
+                          whileTap={{ scale: 0.95 }}
+                          onClick={() => handleGetDirections('wedding')}
+                          className="flex items-center gap-2 px-6 py-2.5 border border-[#C4A57B] text-black hover:bg-[#C4A57B] transition-all duration-300 text-sm tracking-wider uppercase font-sans cursor-pointer"
+                        >
+                          <MapPin className="w-4 h-4" />
+                          Get Directions
+                        </motion.button>
                       </div>
                     </div>
-
-                    <div className="flex flex-wrap gap-3 pt-2">
-                      <motion.button
-                        whileHover={{ scale: 1.05, y: -2 }}
-                        whileTap={{ scale: 0.95 }}
-                        onClick={() => handleAddToCalendar(event)}
-                        className="flex items-center gap-2 px-6 py-2.5 border border-black text-black hover:bg-black hover:text-white transition-all duration-300 text-sm tracking-wider uppercase font-sans cursor-pointer"
-                      >
-                        <Calendar className="w-4 h-4" />
-                        Add to Calendar
-                      </motion.button>
-                      <motion.button
-                        whileHover={{ scale: 1.05, y: -2 }}
-                        whileTap={{ scale: 0.95 }}
-                        onClick={() => handleGetDirections(event.id)}
-                        className="flex items-center gap-2 px-6 py-2.5 border border-[#C4A57B] text-black hover:bg-[#C4A57B] transition-all duration-300 text-sm tracking-wider uppercase font-sans cursor-pointer"
-                      >
-                        <MapPin className="w-4 h-4" />
-                        Get Directions
-                      </motion.button>
-                    </div>
-                  </div>
+                  </motion.div>
                 )}
-              </motion.div>
-            </ScrollReveal>
-          ))}
+              </AnimatePresence>
+            </motion.div>
+          </ScrollReveal>
         </div>
       </div>
     </section>

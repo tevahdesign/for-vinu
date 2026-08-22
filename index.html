@@ -5,7 +5,7 @@
       
       <meta charset="UTF-8" />
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      <title>Vinu & Gana - Wedding Invitation</title>
+      <title>Gana & Vinu - Wedding Invitation</title>
       <meta name="description" content="" />
       <meta property="og:description" content="" />
       <meta name="twitter:description" content="" />
@@ -15,10 +15,30 @@
     </head>
 
     <body>
-      
+      <audio id="bg-audio" src="/background-music.mp3" autoplay loop playsinline webkit-playsinline preload="auto"></audio>
+      <script>
+        (function() {
+          var audio = document.getElementById('bg-audio');
+          if (audio) {
+            audio.volume = 0.03; // 3% sound volume
+            var play = function() {
+              if (audio.paused) {
+                audio.play().catch(function() {});
+              }
+            };
+            play();
+            // Start music instantly on scroll without requiring click!
+            window.addEventListener('scroll', play, { passive: true });
+            window.addEventListener('wheel', play, { passive: true });
+            window.addEventListener('touchmove', play, { passive: true });
+            ['DOMContentLoaded', 'load'].forEach(function(evt) {
+              window.addEventListener(evt, play, { passive: true });
+            });
+          }
+        })();
+      </script>
       <div id="root"></div>
       <script type="module" src="/src/main.tsx"></script>
-      
     </body>
   </html>
   

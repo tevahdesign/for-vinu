@@ -7,6 +7,7 @@ import { GallerySection } from './components/GallerySection';
 import { FamilySection } from './components/FamilySection';
 import { RSVPSection } from './components/RSVPSection';
 import { Footer } from './components/Footer';
+import { BackgroundAudio } from './components/BackgroundAudio';
 import { Toaster } from './components/ui/sonner';
 import { useDynamicFont } from './hooks/useDynamicFont';
 
@@ -59,6 +60,8 @@ export default function App() {
       {/* <RSVPSection /> */}
       
       <Footer />
+      
+      <BackgroundAudio />
       
       <Toaster position="top-center" />
     </div>
