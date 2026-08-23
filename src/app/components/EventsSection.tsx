@@ -184,7 +184,7 @@ export function EventsSection() {
           <ScrollReveal delay={0.2}>
             <motion.div
               whileHover={{ scale: 1.01, transition: { duration: 0.2 } }}
-              className="border border-black/10 bg-white/50 backdrop-blur-sm transition-all duration-300 hover:border-[#C4A57B]/50 hover:shadow-lg p-6 sm:p-8 cursor-pointer"
+              className="border border-black/10 bg-white/50 backdrop-blur-sm transition-all duration-300 hover:border-[#C4A57B]/50 hover:shadow-lg p-8 cursor-pointer"
               onClick={() => setIsWeddingOpen(!isWeddingOpen)}
             >
               <div className="flex justify-between items-center">
@@ -213,11 +213,11 @@ export function EventsSection() {
                     onClick={(e) => e.stopPropagation()} // Prevent card toggle when clicking inside buttons
                   >
                     <div className="pt-6 mt-6 border-t border-black/5 space-y-6">
-                      <div className="flex items-start gap-3 sm:gap-4 overflow-hidden">
+                      <div className="flex items-start gap-4">
                         <Calendar className="w-5 h-5 text-[#C4A57B] mt-1 flex-shrink-0" />
-                        <div className="min-w-0 flex-1 overflow-x-auto scrollbar-none">
+                        <div>
                           <p className="text-xs tracking-widest uppercase text-black/50 font-sans mb-1">Date & Time</p>
-                          <p className="font-serif text-xs min-[360px]:text-sm sm:text-base md:text-lg text-black font-medium whitespace-nowrap">25 October 2026 (Sunday) Muhurtam: 10:15 AM – 11:20 AM</p>
+                          <p className="font-serif text-lg text-black font-medium">25 October 2026 (Sunday) Muhurtam: 10:15 AM – 11:20 AM</p>
                         </div>
                       </div>
 
