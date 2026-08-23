@@ -89,7 +89,7 @@ export function SplashScreen() {
                 style={{ fontFamily: "'Cormorant Garamond', serif" }}
                 className="text-white text-[80px] md:text-[100px] leading-none tracking-tight"
               >
-                G
+                V
               </motion.span>
 
               <motion.span
@@ -106,7 +106,7 @@ export function SplashScreen() {
                 style={{ fontFamily: "'Cormorant Garamond', serif" }}
                 className="text-white text-[80px] md:text-[100px] leading-none tracking-tight"
               >
-                V
+                G
               </motion.span>
             </motion.div>
 
