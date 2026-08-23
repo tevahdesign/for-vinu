@@ -23,7 +23,7 @@ const events: Event[] = [
     id: 'wedding',
     name: 'Wedding',
     date: '25 October 2026',
-    time: 'Muhurtam: 10:15 AM – 11:20 AM',
+    time: 'Muhurtam: 10:15 – 11:20 AM',
     venue: 'Reef Club Resort, Eranhikkal, Calicut'
   }
 ];
@@ -222,7 +222,7 @@ export function EventsSection() {
                           <p className="text-xs tracking-widest uppercase text-black/50 font-sans mb-1">Date & Time</p>
                           <p className="font-serif text-lg text-black font-medium">
                             25 October 2026 (Sunday)<br />
-                            Muhurtam: 10:15 AM – 11:20 AM
+                            Muhurtam: 10:15 – 11:20 AM
                           </p>
                         </div>
                       </div>
