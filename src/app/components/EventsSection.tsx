@@ -134,6 +134,9 @@ export function EventsSection() {
                 <h3 className="font-serif text-3xl text-black">
                   Reception
                 </h3>
+                <p className="text-sm font-sans tracking-widest text-black uppercase mt-1">
+                  26 October 2026
+                </p>
               </div>
 
               <div className="pt-6 mt-6 border-t border-black/5 space-y-6">
@@ -141,7 +144,7 @@ export function EventsSection() {
                   <Calendar className="w-5 h-5 text-[#C4A57B] mt-1 flex-shrink-0" />
                   <div>
                     <p className="text-xs tracking-widest uppercase text-black/50 font-sans mb-1">Date & Time</p>
-                    <p className="font-serif text-lg text-black font-medium">26 October 2026 · 6:00 PM – 9:00 PM</p>
+                    <p className="font-serif text-lg text-black font-medium">26 October 2026 (Monday) 6:00 PM – 9:00 PM</p>
                   </div>
                 </div>
 
@@ -214,7 +217,7 @@ export function EventsSection() {
                         <Calendar className="w-5 h-5 text-[#C4A57B] mt-1 flex-shrink-0" />
                         <div>
                           <p className="text-xs tracking-widest uppercase text-black/50 font-sans mb-1">Date & Time</p>
-                          <p className="font-serif text-lg text-black font-medium">25 October 2026 (Sunday) · Muhurtam: 10:15 AM – 11:20 AM</p>
+                          <p className="font-serif text-lg text-black font-medium">25 October 2026 (Sunday) Muhurtam: 10:15 AM – 11:20 AM</p>
                         </div>
                       </div>
 
