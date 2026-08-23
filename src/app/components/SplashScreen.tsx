@@ -7,8 +7,8 @@ export function SplashScreen() {
   useEffect(() => {
     const playAudio = () => {
       const bgAudio = document.getElementById('bg-audio') as HTMLAudioElement;
-      if (bgAudio) {
-        bgAudio.volume = 0.03;
+      if (bgAudio && sessionStorage.getItem('vinu_gana_audio_manually_muted') !== 'true') {
+        bgAudio.volume = 0.08;
         bgAudio.play().catch(() => {});
       }
     };
@@ -20,8 +20,8 @@ export function SplashScreen() {
 
   const handleSplashClick = () => {
     const bgAudio = document.getElementById('bg-audio') as HTMLAudioElement;
-    if (bgAudio) {
-      bgAudio.volume = 0.03;
+    if (bgAudio && sessionStorage.getItem('vinu_gana_audio_manually_muted') !== 'true') {
+      bgAudio.volume = 0.08;
       bgAudio.play().catch(() => {});
     }
   };

@@ -18,47 +18,50 @@ export function BackgroundAudio() {
     const audio = (document.getElementById('bg-audio') as HTMLAudioElement) || audioRef.current;
     if (!audio) return;
 
-    audio.volume = 0.03; // 3% sound volume level
+    audio.volume = 0.08; // 8% sound volume level
 
-    const handlePlayState = () => setIsPlaying(!audio.paused);
+    const isMuted = isManuallyMutedRef.current || sessionStorage.getItem(MANUALLY_MUTED_KEY) === 'true';
+
+    if (isMuted) {
+      audio.muted = true;
+      audio.pause();
+      setIsPlaying(false);
+    } else {
+      audio.muted = false;
+      audio.play().then(() => setIsPlaying(true)).catch(() => setIsPlaying(false));
+    }
+
+    // Strict play listener: If audio starts playing while manually muted, immediately pause & mute it!
+    const handlePlayState = () => {
+      const currentlyMuted = isManuallyMutedRef.current || sessionStorage.getItem(MANUALLY_MUTED_KEY) === 'true';
+      if (currentlyMuted) {
+        audio.muted = true;
+        audio.pause();
+        setIsPlaying(false);
+      } else {
+        setIsPlaying(!audio.paused && !audio.muted);
+      }
+    };
 
     audio.addEventListener('play', handlePlayState);
     audio.addEventListener('pause', handlePlayState);
 
-    // Initial play attempt on mount IF NOT manually muted by user
-    if (!isManuallyMutedRef.current) {
-      audio.play().then(() => setIsPlaying(true)).catch(() => setIsPlaying(false));
-    }
-
-    // Advanced Scroll Audio Controller
+    // Scroll listener: Hide play/pause button on Hero section (scrollY <= 300), show after Hero
     const handleScroll = () => {
-      // 1. Show floating speaker button only after scrolling past Hero section (300px)
       if (window.scrollY > 300) {
         setShowFloatingButton(true);
       } else {
         setShowFloatingButton(false);
       }
-
-      // 2. Start music INSTANTLY on first-time scroll, UNLESS manually muted by user
-      if (audio.paused && !isManuallyMutedRef.current) {
-        audio.volume = 0.03;
-        audio.play().then(() => setIsPlaying(true)).catch(() => {});
-      }
     };
 
-    // Run initial scroll check
     handleScroll();
-
     window.addEventListener('scroll', handleScroll, { passive: true });
-    window.addEventListener('wheel', handleScroll, { passive: true });
-    window.addEventListener('touchmove', handleScroll, { passive: true });
 
     return () => {
       audio.removeEventListener('play', handlePlayState);
       audio.removeEventListener('pause', handlePlayState);
       window.removeEventListener('scroll', handleScroll);
-      window.removeEventListener('wheel', handleScroll);
-      window.removeEventListener('touchmove', handleScroll);
     };
   }, []);
 
@@ -67,18 +70,22 @@ export function BackgroundAudio() {
     const audio = (document.getElementById('bg-audio') as HTMLAudioElement) || audioRef.current;
     if (!audio) return;
 
-    if (audio.paused) {
-      // USER CLICKED TO UNMUTE / PLAY AGAIN -> Clear manual mute state
-      isManuallyMutedRef.current = false;
-      sessionStorage.setItem(MANUALLY_MUTED_KEY, 'false');
-      audio.volume = 0.03;
-      audio.play().then(() => setIsPlaying(true)).catch(() => {});
-    } else {
-      // USER CLICKED TO MUTE -> Lock manual mute state so scrolling cannot trigger music!
+    const isMuted = isManuallyMutedRef.current || sessionStorage.getItem(MANUALLY_MUTED_KEY) === 'true';
+
+    if (!audio.paused && !isMuted) {
+      // USER CLICKED TO MUTE / PAUSE -> Lock manual mute state and mute property permanently!
       isManuallyMutedRef.current = true;
       sessionStorage.setItem(MANUALLY_MUTED_KEY, 'true');
+      audio.muted = true;
       audio.pause();
       setIsPlaying(false);
+    } else {
+      // USER CLICKED TO UNMUTE / PLAY -> Clear manual mute state and unmute audio!
+      isManuallyMutedRef.current = false;
+      sessionStorage.setItem(MANUALLY_MUTED_KEY, 'false');
+      audio.muted = false;
+      audio.volume = 0.08;
+      audio.play().then(() => setIsPlaying(true)).catch(() => {});
     }
   };
 
@@ -88,7 +95,6 @@ export function BackgroundAudio() {
         ref={audioRef}
         id="bg-audio"
         src="/background-music.mp3"
-        autoPlay
         loop
         playsInline
         webkit-playsinline="true"
