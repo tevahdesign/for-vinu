@@ -61,7 +61,7 @@ export function EventsSection() {
 
   const handleGetDirections = (eventId: string) => {
     if (eventId === 'reception') {
-      window.open('https://maps.app.goo.gl/MGwUsmqn6E3M7teE7', '_blank');
+      window.open('https://maps.app.goo.gl/vZyvXuhPGfFYdaP18?g_st=iw', '_blank');
     } else if (eventId === 'wedding') {
       window.open('https://www.google.com/maps/search/?api=1&query=Reef+Club+Resort+Eranhikkal+Calicut', '_blank');
     }
