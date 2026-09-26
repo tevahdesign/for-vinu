@@ -1,44 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
 
-  <!DOCTYPE html>
-  <html lang="en">
-    <head>
-      
-      <meta charset="UTF-8" />
-      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      <title>Gana & Vinu - Wedding Invitation</title>
-      <meta name="description" content="" />
-      <meta property="og:description" content="" />
-      <meta name="twitter:description" content="" />
-      <meta name="robots" content="noindex, nofollow" />
-      <style>html, body { height: 100%; margin: 0; } #root { height: 100%; }</style>
-      
-    </head>
+<head>
 
-    <body>
-      <audio id="bg-audio" src="/background-music.mp3" autoplay loop playsinline webkit-playsinline preload="auto"></audio>
-      <script>
-        (function() {
-          var audio = document.getElementById('bg-audio');
-          if (audio) {
-            audio.volume = 0.01; // 1% sound volume level
-            var play = function() {
-              if (audio.paused) {
-                audio.play().catch(function() {});
-              }
-            };
-            play();
-            // Start music instantly on scroll without requiring click!
-            window.addEventListener('scroll', play, { passive: true });
-            window.addEventListener('wheel', play, { passive: true });
-            window.addEventListener('touchmove', play, { passive: true });
-            ['DOMContentLoaded', 'load'].forEach(function(evt) {
-              window.addEventListener(evt, play, { passive: true });
-            });
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gana & Vinu - Wedding Invitations</title>
+  <meta name="description" content="" />
+  <meta property="og:description" content="" />
+  <meta name="twitter:description" content="" />
+  <meta name="robots" content="noindex, nofollow" />
+  <style>
+    html,
+    body {
+      height: 100%;
+      margin: 0;
+    }
+
+    #root {
+      height: 100%;
+    }
+  </style>
+
+</head>
+
+<body>
+  <audio id="bg-audio" src="/background-music.mp3" autoplay loop playsinline webkit-playsinline preload="auto"></audio>
+  <script>
+    (function () {
+      var audio = document.getElementById('bg-audio');
+      if (audio) {
+        audio.volume = 0.01; // 1% sound volume level
+        var play = function () {
+          if (audio.paused) {
+            audio.play().catch(function () { });
           }
-        })();
-      </script>
-      <div id="root"></div>
-      <script type="module" src="/src/main.tsx"></script>
-    </body>
-  </html>
-  
+        };
+        play();
+        // Start music instantly on scroll without requiring click!
+        window.addEventListener('scroll', play, { passive: true });
+        window.addEventListener('wheel', play, { passive: true });
+        window.addEventListener('touchmove', play, { passive: true });
+        ['DOMContentLoaded', 'load'].forEach(function (evt) {
+          window.addEventListener(evt, play, { passive: true });
+        });
+      }
+    })();
+  </script>
+  <div id="root"></div>
+  <script type="module" src="/src/main.tsx"></script>
+</body>
+
+</html>

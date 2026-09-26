@@ -8,7 +8,7 @@ export function SplashScreen() {
     const playAudio = () => {
       const bgAudio = document.getElementById('bg-audio') as HTMLAudioElement;
       if (bgAudio && sessionStorage.getItem('vinu_gana_audio_manually_muted') !== 'true') {
-        bgAudio.volume = 0.08;
+        bgAudio.volume = 0.23;
         bgAudio.play().catch(() => {});
       }
     };
@@ -21,7 +21,7 @@ export function SplashScreen() {
   const handleSplashClick = () => {
     const bgAudio = document.getElementById('bg-audio') as HTMLAudioElement;
     if (bgAudio && sessionStorage.getItem('vinu_gana_audio_manually_muted') !== 'true') {
-      bgAudio.volume = 0.08;
+      bgAudio.volume = 0.23;
       bgAudio.play().catch(() => {});
     }
   };
